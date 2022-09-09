@@ -12,6 +12,8 @@ app = Flask(__name__)
 import sys
 import os
 import cptr, createMonster, creationPerso, degats, generationMonstre, gestioncombat
+global perso
+perso = []
 
 @app.route('/', methods=['GET', 'POST'])
 
@@ -19,11 +21,12 @@ def home():
     if request.form:
         compteurKill=0
         listeMonstresPerdus=[]
+        global pseudo
         pseudo=request.form["name"]
         #je récupère le name dans mon input html
-        monPerso=perso(pseudo, 15, 6 ,1)
+        monPerso=perso(pseudo,15,6,1)
         
-        while monPserso[1] > 0:
+        while monPerso[1] > 0:
             nameMonster=createMonster()
             gestioncombat(monPerso, nameMonster)
             
